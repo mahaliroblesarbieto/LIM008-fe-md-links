@@ -17,6 +17,7 @@ const input = 'C:\\test\\demo_path.js';
 const input4 = 'test/demo_path.js';
 const input2 = {};
 const input3 = [];
+const input5 = 'C:\carpeta1\carpeta2\archivo1.doc';
 
   describe('evaluatePath', () => {
     it('debería ser una función', () => {

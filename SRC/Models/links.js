@@ -1,18 +1,18 @@
-const paths = require('path');
-
+let paths = require('path');
+let fs = require('fs');
 export const evaluatePath = (path) => {
-const typePath = paths.isAbsolute(path);
-return typePath;
+  const typePath = paths.isAbsolute(path);
+  return typePath;
 }
 
 export const transformToAbsPath = (path) => {
-    const pathAbsolute = paths.resolve(path);
-return pathAbsolute;
+  const pathAbsolute = paths.resolve(path);
+  return pathAbsolute;
 }
 
 export const recognizeIfIsFile = (pathAbs) => {
-if (pathAbs) return true;
-else return false;
+  const typeFile = fs.statSync(pathAbs).isFile();
+  return typeFile;
 }
 
 export const getFiles = (pathAbs) => {

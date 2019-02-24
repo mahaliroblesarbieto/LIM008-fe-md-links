@@ -17,7 +17,7 @@ const input = 'C:\\test\\demo_path.js';
 const input4 = 'test/demo_path.js';
 const input2 = {};
 const input3 = [];
-const input5 = 'C:\carpeta1\carpeta2\archivo1.doc';
+const input5 = 'D:\lim-2018-11-bc-core-am-data-lovers';
 
   describe('evaluatePath', () => {
     it('debería ser una función', () => {
@@ -46,7 +46,7 @@ const input5 = 'C:\carpeta1\carpeta2\archivo1.doc';
       expect(typeof recognizeIfIsFile).toBe('function');
     });
     it('Debería retornar un dato de tipo booleano', () => {
-      expect(recognizeIfIsFile(input)).toEqual(true);
+      expect(recognizeIfIsFile(input5)).toEqual(false);
     });
   });
 
@@ -55,7 +55,7 @@ const input5 = 'C:\carpeta1\carpeta2\archivo1.doc';
       expect(typeof getFiles).toBe('function');
     });
     it('Debería retornar un dato de tipo array', () => {
-      expect(typeof getFiles(input)).toBe('object');
+      expect(typeof getFiles(input5)).toBe('object');
     });
   });
 

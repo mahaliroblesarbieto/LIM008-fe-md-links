@@ -16,9 +16,19 @@ export const recognizeIfIsFile = (pathAbs) => {
 }
 
 export const getFiles = (pathAbs) => {
-const files = [];
-return files;
-}
+  let files = fs.readdirSync(pathAbs);
+  let filesMD = [];
+  files.forEach((element) => {
+    let currentFile = paths.join(pathAbs, element);
+    if (fs.statSync(currentFile).isFile() && paths.extname(currentFile) === '.md') {
+      filesMD.push(currentFile);
+    } else if (fs.statSync(currentFile).isDirectory()) {
+      getFiles(currentFile);
+    }
+  })
+  return filesMD;
+};
+
 
 
 export const getMDContent = (pathAbsMD) => {

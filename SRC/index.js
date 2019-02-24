@@ -3,6 +3,6 @@ const mdLinks = (path, options) => {
     if (evaluatePath(path) === true){
         recognizeIfIsFile()
     }else{
-        transformToAbsPath()
+        transformToAbsPath(path)
     }
 }

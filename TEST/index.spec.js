@@ -17,6 +17,7 @@ const input = 'C:\\test\\demo_path.js';
 const input4 = 'test/demo_path.js';
 const input2 = {};
 const input3 = [];
+
   describe('evaluatePath', () => {
     it('debería ser una función', () => {
       expect(typeof evaluatePath).toBe('function');
@@ -34,7 +35,7 @@ const input3 = [];
       expect(typeof transformToAbsPath).toBe('function');
     });
     it('Debería retornar un dato de tipo string', () => {
-      expect(typeof transformToAbsPath(input)).toBe('string');
+      expect(typeof transformToAbsPath(input4)).toBe('string');
     });
   });
 

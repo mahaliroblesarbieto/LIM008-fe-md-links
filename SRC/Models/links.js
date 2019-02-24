@@ -1,14 +1,12 @@
 const paths = require('path');
 
-
 export const evaluatePath = (path) => {
 const typePath = paths.isAbsolute(path);
 return typePath;
 }
 
 export const transformToAbsPath = (path) => {
-    const pathRelative = path;
-    const pathAbsolute = "newPath";
+    const pathAbsolute = paths.resolve(path);
 return pathAbsolute;
 }
 

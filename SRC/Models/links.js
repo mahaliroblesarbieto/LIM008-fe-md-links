@@ -1,6 +1,9 @@
+const paths = require('path');
+
+
 export const evaluatePath = (path) => {
-if (path) return true;
-else return false;
+const typePath = paths.isAbsolute(path);
+return typePath;
 }
 
 export const transformToAbsPath = (path) => {

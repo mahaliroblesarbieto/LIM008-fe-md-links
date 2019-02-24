@@ -13,15 +13,19 @@ import {extractHref,
 
 import {calculateStats} from '../SRC/Models/stats.js';
 
-const input = 'ruta string';
+const input = 'C:\\test\\demo_path.js';
+const input4 = 'test/demo_path.js';
 const input2 = {};
 const input3 = [];
   describe('evaluatePath', () => {
     it('debería ser una función', () => {
       expect(typeof evaluatePath).toBe('function');
     });
-    it('Debería retornar un dato de tipo booleano', () => {
+    it('Debería retornar true al ingresar una ruta absoluta', () => {
       expect(evaluatePath(input)).toEqual(true);
+    });
+    it('Debería retornar false al ingresar una ruta relativa', () => {
+      expect(evaluatePath(input4)).toEqual(false);
     });
   });
 

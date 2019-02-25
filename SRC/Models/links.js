@@ -1,6 +1,9 @@
 let paths = require('path');
 let fs = require('fs');
 let marked = require('marked');
+const jsdom = require('jsdom');
+const { JSDOM } = jsdom; 
+
 export const evaluatePath = (path) => {
   const typePath = paths.isAbsolute(path);
   return typePath;
@@ -33,7 +36,7 @@ export const getFiles = (pathAbs) => {
 export const getMDContent = (pathAbsMD) => {
   let content = fs.readFile(pathAbsMD, 'utf8', (err, data) => {
     if (err) throw err;
-    console.log(data);
+    data;
   });
   return content;
 };
@@ -45,7 +48,11 @@ export const convertMDToHtml = (content) => {
 };
 
 export const extractATagAttr = (htmlstring) => {
-  const attrLink = {href: '', text: '', file: ''};
+  const dom = new JSDOM(htmlstring);
+  const contentHref = dom.window.document.querySelector('a').href;
+  const contentText = dom.window.document.querySelector('a').textContent;
+  const route = 'route';
+  const attrLink = {href: contentHref, text: contentText, file: route};
   return attrLink;
 };
 
@@ -54,4 +61,3 @@ export const createArrLinkObj = (obj) => {
   return arrObj;
 };
 
-getMDContent('D:\LIM008-social-network\README.md');

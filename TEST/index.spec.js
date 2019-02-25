@@ -21,7 +21,11 @@ const input5 = 'D:\lim-2018-11-bc-core-am-data-lovers';
 const input6 = 'D:/lim-2018-11-bc-core-am-data-lovers/README.md';
 const input7 = 'Marked Example Code renderer for marked that converts HTML code blocks into examples with rendered HTML and highlighted code using highlight.js';
 const input8 = 'hola';
-const ouput = '<p>hola</p>';
+const input9 = `<a id="post-all"  class = "width container" href="javascript:void(0)">Todas las publicaciones</a>
+`;
+const ouput = `<p>hola</p>
+`;
+const ouput2 = {href: 'javascript:void(0)', text: 'Todas las publicaciones', file: 'route'};
 describe('evaluatePath', () => {
   it('debería ser una función', () => {
     expect(typeof evaluatePath).toBe('function');
@@ -79,7 +83,7 @@ describe('convertMDToHtml', () => {
     expect(typeof convertMDToHtml(input7)).toBe('string');
   });
   it('Debería retornar html en string', () => {
-    expect(convertMDToHtml(input8)).toEqual(ouput);
+    expect(convertMDToHtml(input8)).toBe(ouput);
   });
 });
 
@@ -88,7 +92,10 @@ describe('extractATagAttr', () => {
     expect(typeof extractATagAttr).toBe('function');
   });
   it('Debería retornar un dato de tipo objeto', () => {
-    expect(typeof extractATagAttr(input)).toBe('object');
+    expect(typeof extractATagAttr(input9)).toBe('object');
+  });
+  it('Debería retornar un objeto con href, text y ruta de archivo', () => {
+    expect(extractATagAttr(input9)).toEqual(ouput2);
   });
 });
 

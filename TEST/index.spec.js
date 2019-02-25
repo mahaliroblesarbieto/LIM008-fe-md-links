@@ -3,6 +3,7 @@ import { evaluatePath,
   recognizeIfIsFile,
   getFiles,
   getMDContent,
+  getMDContentSync,
   convertMDToHtml,
   extractATagAttr,
   createArrLinkObj} from '../SRC/Models/links.js';
@@ -32,10 +33,10 @@ describe('evaluatePath', () => {
     expect(typeof evaluatePath).toBe('function');
   });
   it('Debería retornar true al ingresar una ruta absoluta', () => {
-    expect(evaluatePath(input)).toEqual(true);
+    expect(evaluatePath('C:\\mi-ruta-absoluta')).toEqual(true);
   });
   it('Debería retornar false al ingresar una ruta relativa', () => {
-    expect(evaluatePath(input4)).toEqual(false);
+    expect(evaluatePath('.\\mi-ruta-relativa')).toEqual(false);
   });
 });
 

@@ -1,10 +1,17 @@
-let paths = require('path');
-let fs = require('fs');
-let marked = require('marked');
+const paths = require('path');
+const fs = require('fs');
+const marked = require('marked');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom; 
 let arrObj = [];
 
+/**
+ * Chequea si una ruta es absoluta o relativa
+ * 
+ * @param {la ruta en formato string} path
+ * @returns true si absoluta
+ * @returns false si es relativa 
+ */
 export const evaluatePath = (path) => {
   const typePath = paths.isAbsolute(path);
   return typePath;
@@ -35,14 +42,19 @@ export const getFiles = (pathAbs) => {
 };
 
 export const getMDContent = (pathAbsMD) => {
+  let content = fs.readFileSync(pathAbsMD, 'utf8');
+  return content;
+};
+
+/* ejemplo de getMDContent en versión asincrona
+export const getMDContent = (pathAbsMD, callback) => {
   let content;
   fs.readFile(pathAbsMD, 'utf8', (err, data) => {
     if (err) throw err;
     content = data;
-    console.log(content);
-    return content;
+    callback(content);
   });
-};
+};*/
 
 
 export const convertMDToHtml = (content) => {

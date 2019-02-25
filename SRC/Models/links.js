@@ -35,11 +35,13 @@ export const getFiles = (pathAbs) => {
 };
 
 export const getMDContent = (pathAbsMD) => {
-  let content = fs.readFile(pathAbsMD, 'utf8', (err, data) => {
+  let content;
+  fs.readFile(pathAbsMD, 'utf8', (err, data) => {
     if (err) throw err;
-    data;
+    content = data;
+    console.log(content);
+    return content;
   });
-  return content;
 };
 
 

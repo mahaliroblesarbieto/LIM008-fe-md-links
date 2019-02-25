@@ -18,7 +18,10 @@ const input4 = 'test/demo_path.js';
 const input2 = {};
 const input3 = [];
 const input5 = 'D:\lim-2018-11-bc-core-am-data-lovers';
-
+const input6 = 'D:/lim-2018-11-bc-core-am-data-lovers/README.md';
+const input7 = 'Marked Example Code renderer for marked that converts HTML code blocks into examples with rendered HTML and highlighted code using highlight.js';
+const input8 = 'hola';
+const ouput = '<p>hola</p>';
 describe('evaluatePath', () => {
   it('debería ser una función', () => {
     expect(typeof evaluatePath).toBe('function');
@@ -64,7 +67,7 @@ describe('getMDContent', () => {
     expect(typeof getMDContent).toBe('function');
   });
   it('Debería retornar un dato de tipo string', () => {
-    expect(typeof getMDContent(input)).toBe('string');
+    expect(typeof getMDContent(input6)).toBe('string');
   });
 });
 
@@ -73,7 +76,10 @@ describe('convertMDToHtml', () => {
     expect(typeof convertMDToHtml).toBe('function');
   });
   it('Debería retornar un dato de tipo string', () => {
-    expect(typeof convertMDToHtml(input)).toBe('string');
+    expect(typeof convertMDToHtml(input7)).toBe('string');
+  });
+  it('Debería retornar html en string', () => {
+    expect(convertMDToHtml(input8)).toEqual(ouput);
   });
 });
 

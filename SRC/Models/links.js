@@ -1,5 +1,6 @@
 let paths = require('path');
 let fs = require('fs');
+let marked = require('marked');
 export const evaluatePath = (path) => {
   const typePath = paths.isAbsolute(path);
   return typePath;
@@ -30,12 +31,16 @@ export const getFiles = (pathAbs) => {
 };
 
 export const getMDContent = (pathAbsMD) => {
-  const content = '';
+  let content = fs.readFile(pathAbsMD, 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+  });
   return content;
 };
 
+
 export const convertMDToHtml = (content) => {
-  const contentHtml = '';
+  const contentHtml = marked(content);
   return contentHtml;
 };
 
@@ -48,3 +53,5 @@ export const createArrLinkObj = (obj) => {
   const arrObj = [obj];
   return arrObj;
 };
+
+getMDContent('D:\LIM008-social-network\README.md');

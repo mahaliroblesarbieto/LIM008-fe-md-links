@@ -26,6 +26,7 @@ const input9 = `<a id="post-all"  class = "width container" href="javascript:voi
 const ouput = `<p>hola</p>
 `;
 const ouput2 = {href: 'javascript:void(0)', text: 'Todas las publicaciones', file: 'route'};
+const ouput3 = [{href: 'javascript:void(0)', text: 'Todas las publicaciones', file: 'route'}];
 describe('evaluatePath', () => {
   it('debería ser una función', () => {
     expect(typeof evaluatePath).toBe('function');
@@ -104,7 +105,10 @@ describe('createArrLinkObj', () => {
     expect(typeof createArrLinkObj).toBe('function');
   });
   it('Debería retornar un dato de tipo objeto', () => {
-    expect(typeof createArrLinkObj(input2)).toBe('object');
+    expect(typeof createArrLinkObj(ouput2)).toBe('object');
+  });
+  it('Debería retornar un dato de tipo objeto', () => {
+    expect(createArrLinkObj(ouput2)).toBe(ouput3);
   });
 });
 

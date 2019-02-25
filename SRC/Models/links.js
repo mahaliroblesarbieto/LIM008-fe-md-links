@@ -3,6 +3,7 @@ let fs = require('fs');
 let marked = require('marked');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom; 
+let arrObj = [];
 
 export const evaluatePath = (path) => {
   const typePath = paths.isAbsolute(path);
@@ -57,7 +58,7 @@ export const extractATagAttr = (htmlstring) => {
 };
 
 export const createArrLinkObj = (obj) => {
-  const arrObj = [obj];
+  arrObj.push(obj);
   return arrObj;
 };
 

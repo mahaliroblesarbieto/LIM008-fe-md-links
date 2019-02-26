@@ -1,5 +1,8 @@
 export const extractHref = (arrAttrLink) => {
-  const arrHref = ['href', 'href2'];
+  let arrHref = [];
+  for (let i = 0; i < arrAttrLink.length; i++) {
+    arrHref.push(arrAttrLink[i].href);
+  }
   return arrHref;
 };
 

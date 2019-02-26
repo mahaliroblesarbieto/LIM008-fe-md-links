@@ -110,8 +110,8 @@ describe('extractHref', () => {
   it('debería ser una función', () => {
     expect(typeof extractHref).toBe('function');
   });
-  it('Debería retornar un dato de tipo objeto', () => {
-    expect(typeof extractHref(input3)).toBe('object');
+  it('Debería retornar la propiedad hrefquese encuntradentro de cada objeto del array de links', () => {
+    expect(extractHref([{href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'}, {href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'}])).toEqual(['javascript:void(0)', 'javascript:void(0)']);
   });
 });
 

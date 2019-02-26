@@ -6,13 +6,6 @@ const { JSDOM } = jsdom;
 let arrObj = [];
 let filesMD = [];
 
-/**
- * Chequea si una ruta es absoluta o relativa
- * 
- * @param {la ruta en formato string} path
- * @returns true si absoluta
- * @returns false si es relativa 
- */
 export const evaluatePath = (path) => {
   const typePath = paths.isAbsolute(path);
   return typePath;
@@ -40,8 +33,6 @@ export const getFiles = (pathAbs) => {
   });
   return filesMD;
 };
-
-console.log(getFiles('C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre'));
 
 export const getMDContent = (pathAbsMD) => {
   let content = fs.readFileSync(pathAbsMD, 'utf8');

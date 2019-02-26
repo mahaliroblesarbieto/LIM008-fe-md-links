@@ -18,7 +18,6 @@ const path = require('path');
 const input3 = [];
 const ouput = `<p>Hola Mundo</p>
 `;
-const ouput2 = [{href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'}, {href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'}];
 
 describe('evaluatePath', () => {
   it('debería ser una función', () => {
@@ -57,11 +56,8 @@ describe('getFiles', () => {
   it('debería ser una función', () => {
     expect(typeof getFiles).toBe('function');
   });
-  it('Debería retornar un dato de tipo array', () => {
-    expect(typeof getFiles('C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre')).toBe('object');
-  });
   it('Debería retornar un array con las rutas absolutas de los archivos markdown que se encuentren en la carpeta', () => {
-    expect(getFiles('C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre')).toEqual([]);
+    expect(getFiles('C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre')).toEqual(['C:\\Users\\Henry\\Documents\\javascript-proyecto-laboratoria\\PROYECTO-PORTAFOLIO\\LIM008-fe-md-links\\TEST\\carpetapadre\\carpetahijo1\\3.md', 'C:\\Users\\Henry\\Documents\\javascript-proyecto-laboratoria\\PROYECTO-PORTAFOLIO\\LIM008-fe-md-links\\TEST\\carpetapadre\\carpetahijo2\\A.md', 'C:\\Users\\Henry\\Documents\\javascript-proyecto-laboratoria\\PROYECTO-PORTAFOLIO\\LIM008-fe-md-links\\TEST\\carpetapadre\\carpetahijo2\\readme.md']);
   });
 });
 
@@ -105,11 +101,8 @@ describe('createArrLinkObj', () => {
   it('debería ser una función', () => {
     expect(typeof createArrLinkObj).toBe('function');
   });
-  it('Debería retornar un dato de tipo objeto', () => {
-    expect(typeof createArrLinkObj({href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'})).toBe('object');
-  });
   it('Debería retornar un objeto dentro de un array', () => {
-    expect(createArrLinkObj({href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'})).toEqual(ouput2);
+    expect(createArrLinkObj({href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'})).toEqual([{href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'}]);
   });
 });
 

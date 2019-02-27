@@ -1,5 +1,7 @@
 import {evaluatePath, recognizeIfIsFile, getFiles, getMDContent, convertMDToHtml, extractATagAttr, createArrLinkObj} from './Models/links.js';
 const paths = require('path');
+const jsdom = require('jsdom');
+const { JSDOM } = jsdom; 
 export const mdLinks = (path) => {
   let pathAbsolute;
   if (evaluatePath(path)) {
@@ -16,8 +18,13 @@ export const mdLinks = (path) => {
       console.log(content);
       if (content !== '') {
         let contenthtml = convertMDToHtml(content);
-        let link = extractATagAttr(contenthtml, pathAbsolute);
-        arrLinks.push(link);
+        console.log(contenthtml);
+        const dom = new JSDOM(contenthtml);
+        if (dom.window.document.querySelector('a')) {
+          let link = extractATagAttr(contenthtml, pathAbsolute);
+          console.log(link);
+          arrLinks.push(link);
+        }
       }
     }
     return arrLinks;

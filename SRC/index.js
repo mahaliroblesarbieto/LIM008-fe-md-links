@@ -7,31 +7,29 @@ export const mdLinks = (path) => {
   } else {
     pathAbsolute = transformToAbsPath(path);
   };
-//  return new Promise((resolve, reject) => {
-    if (recognizeIfIsFile(pathAbsolute) === false) {
-      getFiles(pathAbsolute).forEach((archivo) => {
-        const content = getMDContent(archivo);
-        console.log(content);
-        const contenthtml = convertMDToHtml(content);
-        console.log(contenthtml);
-        const link = extractATagAttr(contenthtml, pathAbsolute);
-        console.log(link);
-        const arrLink = createArrLinkObj(link);
-        console.log(arrLink);
-        return arrLink;
-      });
-    } else {
-      let extension = paths.extname(pathAbsolute);
-      if (extension === '.md') {
-        const content = getMDContent(pathAbsolute);
-        const contenthtml = convertMDToHtml(content);
-        const link = extractATagAttr(contenthtml, pathAbsolute);
-        const arrLink = createArrLinkObj(link);
-        return arrLink;
-         
+  if (recognizeIfIsFile(pathAbsolute) === false) {
+    let arrLinks = [];
+    const arrPath = getFiles(pathAbsolute);
+    console.log(arrPath);
+    for (let i = 0; i < arrPath.length; i++) {
+      let content = getMDContent(arrPath[i]);
+      console.log(content);
+      if (content !== '') {
+        let contenthtml = convertMDToHtml(content);
+        let link = extractATagAttr(contenthtml, pathAbsolute);
+        arrLinks.push(link);
       }
-    }   
-//  });
-// return arrLink;
+    }
+    return arrLinks;
+  } else {
+    let extension = paths.extname(pathAbsolute);
+    if (extension === '.md') {
+      const content = getMDContent(pathAbsolute);
+      const contenthtml = convertMDToHtml(content);
+      const link = extractATagAttr(contenthtml, pathAbsolute);
+      const arrLink = createArrLinkObj(link);
+      return arrLink;   
+    }
+  }   
 };
 

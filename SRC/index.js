@@ -12,17 +12,13 @@ export const mdLinks = (path) => {
   if (recognizeIfIsFile(pathAbsolute) === false) {
     let arrLinks = [];
     const arrPath = getFiles(pathAbsolute);
-    console.log(arrPath);
     for (let i = 0; i < arrPath.length; i++) {
-      let content = getMDContent(arrPath[i]);
-      console.log(content);
+      const content = getMDContent(arrPath[i]);
       if (content !== '') {
-        let contenthtml = convertMDToHtml(content);
-        console.log(contenthtml);
+        const contenthtml = convertMDToHtml(content);
         const dom = new JSDOM(contenthtml);
         if (dom.window.document.querySelector('a')) {
-          let link = extractATagAttr(contenthtml, pathAbsolute);
-          console.log(link);
+          const link = extractATagAttr(contenthtml, pathAbsolute);
           arrLinks.push(link);
         }
       }

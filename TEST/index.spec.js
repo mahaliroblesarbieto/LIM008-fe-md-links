@@ -13,6 +13,10 @@ import {extractHref,
 
 import {calculateStats} from '../SRC/Models/stats.js';
 
+import {mdLinks} from '../SRC/index.js';
+
+import {probando} from '../SRC/cli.js';
+
 const path = require('path');
 
 const input3 = [];
@@ -93,7 +97,7 @@ describe('extractATagAttr', () => {
     expect(typeof extractATagAttr('<a id="post-all" href="javascript:void(0)">Hola Mundo</a>')).toBe('object');
   });
   it('Debería retornar un objeto con href, text y ruta de archivo', () => {
-    expect(extractATagAttr('<a id="post-all" href="javascript:void(0)">Hola Mundo</a>')).toEqual({href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'});
+    expect(extractATagAttr('<a id="post-all" href="javascript:void(0)">Hola Mundo</a>', 'ruta')).toEqual({href: 'javascript:void(0)', text: 'Hola Mundo', file: 'ruta'});
   });
 });
 
@@ -139,6 +143,15 @@ describe('calculateStats', () => {
   });
   it('Debería retornar un dato de tipo objeto', () => {
     expect(typeof calculateStats(input3)).toBe('object');
+  });
+});
+
+describe('mdLinks', () => {
+  it('Debería retornar un array que contenga unobjetocon los atribtos de los links encontrados dentro de la ruta', () => {
+    expect(mdLinks('C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2/A.md')).toEqual([{href: 'javascript:void(0)', text: 'Hola Mundo', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2/A.md'}]);
+  });
+  fit('Debería retornar un array que contenga unobjetocon los atribtos de los links encontrados dentro de la ruta', () => {
+    expect(mdLinks('C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2')).toEqual([{href: 'javascript:void(0)', text: 'Hola Mundo', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre'}]);
   });
 });
   

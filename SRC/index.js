@@ -25,22 +25,8 @@ export const mdLinks = (path) => {
         }
       }
     }
+    console.log(arrLinks);
     return arrLinks;
-  } else {
-    let arrLink = [];
-    let extension = paths.extname(pathAbsolute);
-    if (extension === '.md') {
-      const content = getMDContent(pathAbsolute);
-      if (content !== '') {
-        const contenthtml = convertMDToHtml(content);
-        const dom = new JSDOM(contenthtml);
-        if (dom.window.document.querySelector('a')) {
-          const link = extractATagAttr(contenthtml, pathAbsolute);
-          arrLink.push(link);
-          return arrLink;
-        }
-      }  
-    }
-  }   
+  }    
 };
 

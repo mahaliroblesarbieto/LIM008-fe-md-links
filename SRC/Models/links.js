@@ -1,10 +1,6 @@
 const paths = require('path');
 const fs = require('fs');
 const marked = require('marked');
-const jsdom = require('jsdom');
-const { JSDOM } = jsdom; 
-let arrObj = [];
-let filesMD = [];
 
 export const evaluatePath = (path) => {
   const typePath = paths.isAbsolute(path);
@@ -22,13 +18,14 @@ export const recognizeIfIsFile = (pathAbs) => {
 };
 
 export const getFiles = (pathAbs) => {
+  let filesMD = [];
   let files = fs.readdirSync(pathAbs);
   files.forEach((element) => {
     let currentFile = paths.join(pathAbs, element);
     if (fs.statSync(currentFile).isFile() && paths.extname(currentFile) === '.md') {
       filesMD.push(currentFile);
     } else if (fs.statSync(currentFile).isDirectory()) {
-      getFiles(currentFile);
+      filesMD = filesMD.concat(getFiles(currentFile));
     }
   });
   return filesMD;
@@ -63,8 +60,4 @@ export const extractATagAttr = (aElement, path) => {
   return attrLink;
 };
 
-export const createArrLinkObj = (obj) => {
-  arrObj.push(obj);
-  return arrObj;
-};
 

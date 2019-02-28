@@ -55,10 +55,9 @@ export const convertMDToHtml = (content) => {
   return contentHtml;
 };
 
-export const extractATagAttr = (htmlstring, path) => {
-  const dom = new JSDOM(htmlstring);
-  const contentHref = dom.window.document.querySelector('a').href;
-  const contentText = dom.window.document.querySelector('a').textContent;
+export const extractATagAttr = (aElement, path) => {
+  const contentHref = aElement.href;
+  const contentText = aElement.textContent;
   const route = path;
   const attrLink = {href: contentHref, text: contentText, file: route};
   return attrLink;

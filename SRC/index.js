@@ -26,6 +26,22 @@ export const mdLinks = (path) => {
       }
     }
     return arrLinks;
+  } else {
+    let extension = paths.extname(pathAbsolute);
+    let arrLinks = [];
+    if (extension === '.md') {
+      const content = getMDContent(pathAbsolute);
+      if (content !== '') {
+        const contenthtml = convertMDToHtml(content);
+        const dom = new JSDOM(contenthtml);
+        if (dom.window.document.querySelector('a')) {
+          dom.window.document.querySelectorAll('a').forEach((archivo) => {
+            arrLinks.push(extractATagAttr(archivo, pathAbsolute));
+          });
+        }
+      }
+    }
+    return arrLinks;
   }    
 };
 

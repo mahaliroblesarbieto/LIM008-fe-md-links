@@ -20,7 +20,7 @@ const path = require('path');
 const input = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre';
 const input2 = new JSDOM('<a id="post-all" href="javascript:void(0)">Hola Mundo</a>').window.document.querySelector('a');
 const input3 = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2/segundo.md';
-
+const input4 = new JSDOM('<a id="post-all" href="javascript:void(0)">Hola Mundo, mi hobbie es la programacion y hacer deporte</a>').window.document.querySelector('a');
 const ouput = ['C:\\Users\\Henry\\Documents\\javascript-proyecto-laboratoria\\PROYECTO-PORTAFOLIO\\LIM008-fe-md-links\\TEST\\carpetapadre\\carpetahijo1\\primero.md', 
   'C:\\Users\\Henry\\Documents\\javascript-proyecto-laboratoria\\PROYECTO-PORTAFOLIO\\LIM008-fe-md-links\\TEST\\carpetapadre\\carpetahijo2\\readme.md', 
   'C:\\Users\\Henry\\Documents\\javascript-proyecto-laboratoria\\PROYECTO-PORTAFOLIO\\LIM008-fe-md-links\\TEST\\carpetapadre\\carpetahijo2\\segundo.md'];
@@ -101,6 +101,9 @@ describe('extractATagAttr', () => {
   });
   it('Debería retornar un objeto con href, text y ruta de archivo', () => {
     expect(extractATagAttr(input2, 'ruta')).toEqual({href: 'javascript:void(0)', text: 'Hola Mundo', file: 'ruta'});
+  });
+  it('Debería retornar un objeto con href, text recortado a 50 caracteres y ruta de archivo', () => {
+    expect(extractATagAttr(input4, 'ruta')).toEqual({href: 'javascript:void(0)', text: 'Hola Mundo, mi hobbie es la programacion y hacer d', file: 'ruta'});
   });
 });
 

@@ -54,7 +54,7 @@ export const convertMDToHtml = (content) => {
 
 export const extractATagAttr = (aElement, path) => {
   const contentHref = aElement.href;
-  const contentText = aElement.textContent;
+  const contentText = (String(aElement.textContent)).substring(0, 50);
   const route = path;
   const attrLink = {href: contentHref, text: contentText, file: route};
   return attrLink;

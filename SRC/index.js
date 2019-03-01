@@ -1,4 +1,4 @@
-import {evaluatePath, recognizeIfIsFile, getFiles, getMDContent, convertMDToHtml, extractATagAttr, createArrLinkObj} from './Models/links.js';
+import {evaluatePath, transformToAbsPath, recognizeIfIsFile, getFiles, getMDContent, convertMDToHtml, extractATagAttr} from './Models/links.js';
 const paths = require('path');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
@@ -25,7 +25,6 @@ export const mdLinks = (path) => {
         }
       }
     }
-    console.log(arrLinks);
     return arrLinks;
   }    
 };

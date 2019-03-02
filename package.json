@@ -24,6 +24,7 @@
     "regenerator-runtime": "^0.13.1"
   },
   "dependencies": {
+    "link-check": "^4.4.4",
     "marked": "^0.6.1"
   }
 }

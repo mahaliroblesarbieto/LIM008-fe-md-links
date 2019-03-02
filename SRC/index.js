@@ -1,4 +1,5 @@
 import {evaluatePath, transformToAbsPath, recognizeIfIsFile, getFiles, getMDContent, convertMDToHtml, extractATagAttr} from './Models/links.js';
+import {getStatus} from './Models/validate.js';
 const paths = require('path');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
@@ -48,3 +49,4 @@ export const mdLinks = (path) => {
 };
 
 
+// arrLink.map((elemento => getStatus(elemento)));

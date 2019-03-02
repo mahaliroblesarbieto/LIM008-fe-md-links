@@ -6,10 +6,6 @@ import { evaluatePath,
   convertMDToHtml,
   extractATagAttr} from '../SRC/Models/links.js';
 
-import {extractHref,
-  verifyLink,
-  addVerification} from '../SRC/Models/validate.js';
-
 import {calculateStats} from '../SRC/Models/stats.js';
 
 const jsdom = require('jsdom');
@@ -107,40 +103,13 @@ describe('extractATagAttr', () => {
   });
 });
 
-describe('extractHref', () => {
-  it('debería ser una función', () => {
-    expect(typeof extractHref).toBe('function');
-  });
-  it('Debería retornar la propiedad hrefquese encuntradentro de cada objeto del array de links', () => {
-    expect(extractHref([{href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'}, {href: 'javascript:void(0)', text: 'Hola Mundo', file: 'route'}])).toEqual(['javascript:void(0)', 'javascript:void(0)']);
-  });
-});
-
-describe('verifyLink', () => {
-  it('debería ser una función', () => {
-    expect(typeof verifyLink).toBe('function');
-  });
-  it('Debería retornar un dato de tipo objeto', () => {
-    expect(typeof verifyLink(input3)).toBe('object');
-  });
-});
-
-describe('addVerification', () => {
-  it('debería ser una función', () => {
-    expect(typeof addVerification).toBe('function');
-  });
-  it('Debería retornar un dato de tipo objeto', () => {
-    expect(typeof addVerification(input3)).toBe('object');
-  });
-});
-
-describe('calculateStats', () => {
-  it('debería ser una función', () => {
-    expect(typeof calculateStats).toBe('function');
-  });
-  it('Debería retornar un dato de tipo objeto', () => {
-    expect(typeof calculateStats(input3)).toBe('object');
-  });
-});
+// describe('calculateStats', () => {
+//   it('debería ser una función', () => {
+//     expect(typeof calculateStats).toBe('function');
+//   });
+//   it('Debería retornar un dato de tipo objeto', () => {
+//     expect(typeof calculateStats(input3)).toBe('object');
+//   });
+// });
   
 

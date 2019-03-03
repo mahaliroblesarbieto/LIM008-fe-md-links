@@ -4,7 +4,7 @@ const paths = require('path');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-export const mdLinks = (path) => {
+export const mdLinks = (path, options) => {
   let pathAbsolute;
   if (evaluatePath(path)) {
     pathAbsolute = path;
@@ -49,4 +49,4 @@ export const mdLinks = (path) => {
 };
 
 
-// arrLink.map((elemento => getStatus(elemento)));
+// arrLinks.map((elemento => getStatus(elemento)));

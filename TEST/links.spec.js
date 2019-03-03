@@ -6,8 +6,6 @@ import { evaluatePath,
   convertMDToHtml,
   extractATagAttr} from '../SRC/Models/links.js';
 
-import {calculateStats} from '../SRC/Models/stats.js';
-
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
@@ -102,14 +100,5 @@ describe('extractATagAttr', () => {
     expect(extractATagAttr(input4, 'ruta')).toEqual({href: 'javascript:void(0)', text: 'Hola Mundo, mi hobbie es la programacion y hacer d', file: 'ruta'});
   });
 });
-
-// describe('calculateStats', () => {
-//   it('debería ser una función', () => {
-//     expect(typeof calculateStats).toBe('function');
-//   });
-//   it('Debería retornar un dato de tipo objeto', () => {
-//     expect(typeof calculateStats(input3)).toBe('object');
-//   });
-// });
   
 

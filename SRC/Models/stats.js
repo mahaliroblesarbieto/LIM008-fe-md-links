@@ -1,26 +1,22 @@
 export const calculateStats = (arrAttLinks) => {
   if (arrAttLinks[0].status) {
-    console.log('entra');
-    const arrTotal = arrAttLinks.length;
-    let arrHref = [];
-    arrAttLinks.forEach(element => {
-      arrHref.push(element.href);
-    });
-    let arrUnique = arrHref.filter((valor, indiceActual, arreglo) => arreglo.indexOf(valor) === indiceActual);
-    const uniqueLength = arrUnique.length;
+    const statsValidate = calculateTotalAndUnique(arrAttLinks); 
     const brokenTotal = (arrAttLinks.filter(compare => (compare.value === 'Fail'))).length;
-    console.log(brokenTotal);
-    const statsValidate = {total: arrTotal, unique: uniqueLength, broken: brokenTotal};
+    statsValidate.broken = brokenTotal;
     return statsValidate;
   } else {
-    const arrTotal = arrAttLinks.length;
-    let arrHref = [];
-    arrAttLinks.forEach(element => {
-      arrHref.push(element.href);
-    });
-    let arrUnique = arrHref.filter((valor, indiceActual, arreglo) => arreglo.indexOf(valor) === indiceActual);
-    const uniqueLength = arrUnique.length;
-    const stats = {total: arrTotal, unique: uniqueLength};
+    const stats = calculateTotalAndUnique(arrAttLinks);
     return stats;
   }
+};
+
+const calculateTotalAndUnique = (arr) => {
+  const arrTotal = arr.length;
+  let arrHref = [];
+  arr.forEach(element => {
+    arrHref.push(element.href);
+  });
+  const uniqueLength = (arrHref.filter((valor, indiceActual, arreglo) => arreglo.indexOf(valor) === indiceActual)).length;
+  const totalAndUnique = {total: arrTotal, unique: uniqueLength};
+  return totalAndUnique;
 };

@@ -30,26 +30,26 @@ const ouput4 = [{ href: 'javascript:void(0)', text: 'Hola Mundo', file: 'C:/User
 // });
 
 test('Al ingresar la ruta absoluta de una carpeta que contiene archivos debería retornar un array con los links encontrados dentro de la ruta', async() => {
-  await mdLinks(input).then((respuesta) => {
+  await mdLinks(input, {validate: false, stats: false}).then((respuesta) => {
     expect(respuesta).toEqual(ouput);
   });
 });
 
 test('Al ingresar la ruta absoluta de una carpeta que contiene archivos y carpetas debería retornar un array con los links encontrados dentro de la ruta', async() => {
-  await mdLinks(input2).then((respuesta) => {
+  await mdLinks(input2, {validate: false, stats: false}).then((respuesta) => {
     expect(respuesta).toEqual(ouput2);
   });
 });
 
 
 test('Al ingresar la ruta relativa de una carpeta que contiene archivos y carpetas debería retornar un array con los links encontrados dentro de la ruta', async() => {
-  await mdLinks('TEST/carpetapadre').then((respuesta) => {
+  await mdLinks('TEST/carpetapadre', {validate: false, stats: false}).then((respuesta) => {
     expect(JSON.stringify(respuesta, null, 4)).toEqual(JSON.stringify(ouput3, null, 4));
   });
 });
 
 test('Al ingresar la ruta absoluta de un archivo debería retornar un array con los links encontrados dentro de la ruta', async() => {
-  await mdLinks(input4).then((respuesta) => {
+  await mdLinks(input4, {validate: false, stats: false}).then((respuesta) => {
     expect(respuesta).toEqual(ouput4);
   });
 });

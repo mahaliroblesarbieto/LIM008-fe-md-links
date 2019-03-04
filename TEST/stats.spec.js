@@ -16,10 +16,22 @@ describe('calculateStats', () => {
   it('debería ser una función', () => {
     expect(typeof calculateStats).toBe('function');
   });
-  it('Debería retornar el total de links y cuantos de los links no se repiten', () => {
-    expect(calculateStats(input)).toEqual(ouput);
+  // it('Debería retornar el total de links y cuantos de los links no se repiten', () => {
+  //   expect(calculateStats(input)).toEqual(ouput);
+  // });
+  // it('Debería retornar el total de links, cuantos de los links no se repiten y cuantos links son broken', () => {
+  //   expect(calculateStats(input2)).toEqual(ouput2);
+  // });
+});
+
+test('Debería retornar el total de links y cuantos de los links no se repiten', async() => {
+  await calculateStats(input).then((respuesta) => {
+    expect(respuesta).toEqual(ouput);
   });
-  it('Debería retornar el total de links, cuantos de los links no se repiten y cuantos links son broken', () => {
-    expect(calculateStats(input2)).toEqual(ouput2);
+});
+
+test('Debería retornar el total de links, cuantos de los links no se repiten y cuantos links son broken', async() => {
+  await calculateStats(input2).then((respuesta) => {
+    expect(respuesta).toEqual(ouput2);
   });
 });

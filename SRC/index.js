@@ -1,5 +1,6 @@
 import {evaluatePath, transformToAbsPath, recognizeIfIsFile, getFiles, getMDContent, convertMDToHtml, extractATagAttr} from './Models/links.js';
 import {getStatus} from './Models/validate.js';
+import {calculateStats} from './Models/stats';
 const paths = require('path');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
@@ -24,7 +25,7 @@ export const mdLinks = (path, options) => {
     } else if (!options.validate && options.stats) {
       getLinks(pathAbs)
         .then((arr) => calculateStats(arr))
-        .then(response => resolve(response[0]))
+        .then(response => resolve(response))
         .catch(console.error);
     } else if (options.validate && options.stats) {
       getLinks(pathAbs)

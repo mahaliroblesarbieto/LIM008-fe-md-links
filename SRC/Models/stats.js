@@ -1,14 +1,14 @@
-export const calculateStats = (arrAttLinks) => {
+export const calculateStats = (arrAttLinks) => new Promise((resolve, reject) => {
   if (arrAttLinks[0].status) {
     const statsValidate = calculateTotalAndUnique(arrAttLinks); 
     const brokenTotal = (arrAttLinks.filter(compare => (compare.value === 'Fail'))).length;
     statsValidate.broken = brokenTotal;
-    return statsValidate;
+    resolve(statsValidate);
   } else {
     const stats = calculateTotalAndUnique(arrAttLinks);
-    return stats;
+    resolve(stats);
   }
-};
+});
 
 const calculateTotalAndUnique = (arr) => {
   const arrTotal = arr.length;

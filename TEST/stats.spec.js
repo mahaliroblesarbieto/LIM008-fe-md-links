@@ -18,14 +18,14 @@ describe('calculateStats', () => {
   });
 });
 
-test('Debería retornar el total de links y cuantos de los links no se repiten', async(done) => {
+test('Debería retornar el total de links y cuantos de los links no se repiten', (done) => {
   calculateStats(input).then((respuesta) => {
     expect(respuesta).toEqual(ouput);
     done();
   });
 });
 
-test('Debería retornar el total de links, cuantos de los links no se repiten y cuantos links son broken', async(done) => {
+test('Debería retornar el total de links, cuantos de los links no se repiten y cuantos links son broken', (done) => {
   calculateStats(input2).then((respuesta) => {
     expect(respuesta).toEqual(ouput2);
     done();

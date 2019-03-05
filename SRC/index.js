@@ -19,7 +19,7 @@ export const mdLinks = (path, options) => {
         .catch(console.error);
     } else if (options.validate && !options.stats) {
       getLinks(pathAbs)
-        .then((arr) => arr.map((elemento => getStatus(elemento))))
+        .then((arr) => Promise.all(arr.map(elemento => getStatus(elemento))))
         .then(response => resolve(response))
         .catch(console.error);
     } else if (!options.validate && options.stats) {
@@ -29,7 +29,7 @@ export const mdLinks = (path, options) => {
         .catch(console.error);
     } else if (options.validate && options.stats) {
       getLinks(pathAbs)
-        .then((arr) => arr.map((elemento => getStatus(elemento))))
+        .then((arr) => arr.map(elemento => getStatus(elemento)))
         .then((arr) => calculateStats(arr))
         .then(response => resolve(response[0]))
         .catch(console.error);

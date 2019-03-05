@@ -31,7 +31,7 @@ export const mdLinks = (path, options) => {
       getLinks(pathAbs)
         .then((arr) => validateLink(arr))
         .then((arr) => calculateStats(arr))
-        .then(response => resolve(response[0]))
+        .then(response => resolve(response))
         .catch(console.error);
     }
   });   

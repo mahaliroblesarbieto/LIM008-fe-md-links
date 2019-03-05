@@ -1,5 +1,5 @@
 import {evaluatePath, transformToAbsPath, recognizeIfIsFile, getFiles, getMDContent, convertMDToHtml, extractATagAttr} from './Models/links.js';
-import {getStatus} from './Models/validate.js';
+import {validateLink} from './Models/validate.js';
 import {calculateStats} from './Models/stats';
 const paths = require('path');
 const jsdom = require('jsdom');
@@ -19,7 +19,7 @@ export const mdLinks = (path, options) => {
         .catch(console.error);
     } else if (options.validate && !options.stats) {
       getLinks(pathAbs)
-        .then((arr) => Promise.all(arr.map(elemento => getStatus(elemento))))
+        .then((arr) => validateLink(arr))
         .then(response => resolve(response))
         .catch(console.error);
     } else if (!options.validate && options.stats) {
@@ -29,16 +29,13 @@ export const mdLinks = (path, options) => {
         .catch(console.error);
     } else if (options.validate && options.stats) {
       getLinks(pathAbs)
-        .then((arr) => arr.map(elemento => getStatus(elemento)))
+        .then((arr) => validateLink(arr))
         .then((arr) => calculateStats(arr))
         .then(response => resolve(response[0]))
         .catch(console.error);
     }
   });   
 };
-
-
-// arrLinks.map((elemento => getStatus(elemento)));
 
 const getLinks = (pathAbsolute) => new Promise((resolve, reject) => {
   if (recognizeIfIsFile(pathAbsolute) === false) {

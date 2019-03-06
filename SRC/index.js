@@ -2,7 +2,7 @@ import {getLinks, evaluatePath, transformToAbsPath} from './Models/links.js';
 import {validateLink} from './Models/validate.js';
 import {calculateStats} from './Models/stats';
 
-export const mdLinks = (path, options) => {
+const mdLinks = (path, options) => {
   let pathAbs;
   if (evaluatePath(path)) {
     pathAbs = path;
@@ -10,7 +10,7 @@ export const mdLinks = (path, options) => {
     pathAbs = transformToAbsPath(path);
   };
   return new Promise((resolve, reject) => {
-    if (!options.validate && !options.stats) {
+    if (options === undefined) {
       getLinks(pathAbs)
         .then(response => resolve(response))
         .catch(console.error);
@@ -34,3 +34,4 @@ export const mdLinks = (path, options) => {
   });   
 };
 
+module.exports = mdLinks;

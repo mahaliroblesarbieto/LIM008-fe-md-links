@@ -1,4 +1,5 @@
-import {mdLinks} from '../SRC/index.js';
+// import {mdLinks} from '../SRC/index.js';
+const mdLinks = require('../SRC/index.js')
 
 const input = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2'; 
 const input2 = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre'; 
@@ -19,14 +20,14 @@ const ouput6 = {total: 2, unique: 2};
 const ouput7 = {total: 2, unique: 2, broken: 1};
 
 test('Al ingresar la ruta absoluta de una carpeta que contiene archivos debería retornar un array con los links encontrados dentro de la ruta', (done) => {
-  mdLinks(input, {validate: false, stats: false}).then((respuesta) => {
+  mdLinks(input).then((respuesta) => {
     expect(respuesta).toEqual(ouput);
     done();
   });
 });
 
 test('Al ingresar la ruta absoluta de una carpeta que contiene archivos y carpetas debería retornar un array con los links encontrados dentro de la ruta', (done) => {
-  mdLinks(input2, {validate: false, stats: false}).then((respuesta) => {
+  mdLinks(input2).then((respuesta) => {
     expect(respuesta).toEqual(ouput2);
     done();
   });
@@ -34,14 +35,14 @@ test('Al ingresar la ruta absoluta de una carpeta que contiene archivos y carpet
 
 
 test('Al ingresar la ruta relativa de una carpeta que contiene archivos y carpetas debería retornar un array con los links encontrados dentro de la ruta', (done) => {
-  mdLinks('TEST/carpetapadre', {validate: false, stats: false}).then((respuesta) => {
+  mdLinks('TEST/carpetapadre').then((respuesta) => {
     expect(JSON.stringify(respuesta, null, 4)).toEqual(JSON.stringify(ouput3, null, 4));
     done();
   });
 });
 
 test('Al ingresar la ruta absoluta de un archivo debería retornar un array con los links encontrados dentro de la ruta', (done) => {
-  mdLinks(input4, {validate: false, stats: false}).then((respuesta) => {
+  mdLinks(input4).then((respuesta) => {
     expect(respuesta).toEqual(ouput4);
     done();
   });

@@ -1,5 +1,4 @@
-// import {mdLinks} from '../SRC/index.js';
-const mdLinks = require('../SRC/index.js')
+const mdLinks = require('../SRC/index.js');
 
 const input = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2'; 
 const input2 = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre'; 

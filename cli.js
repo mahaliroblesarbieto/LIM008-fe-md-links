@@ -1,34 +1,40 @@
 #!/usr/bin/env node
 const mdLinks = require('./lib/index.js');
 
-const showInCli = (argv) => {
-  if (argv.length === 3) {
-    mdLinks(argv[2])
-      .then(response1 => {
-        response1.forEach(element => {
-          console.log(`${element.file}, ${element.href}, ${element.text}`);
-        });
-      });
-  } else if (argv.includes('--validate') && argv.includes('--stats')) {
-    mdLinks(argv[2], {validate: true, stats: true})
-      .then(response1 => {
-        console.log(`Total:${response1.total} \nUnique:${response1.unique} \nBroken:${response1.broken}`);
-      });
-  } else if (argv.includes('--validate')) {
-    mdLinks(argv[2], {validate: true, stats: false})
-      .then(response1 => {
-        response1.forEach(element => {
-          console.log(`${element.file}, ${element.href}, ${element.text}, ${element.status}, ${element.value}`);
-        });
-      });
-  } else if (argv.includes('--stats')) {
-    mdLinks(argv[2], {validate: false, stats: true})
-      .then(response1 => {
-        console.log(`Total:${response1.total} \nUnique:${response1.unique}`);
-      });
-  }; 
+const showInCli = (response) => {
+  if ((JSON.stringify(response))[0] === '{') {
+    if (response.broken) {
+      const firstResult = `Total:${response.total} \nUnique:${response.unique} \nBroken:${response.broken}`;
+      return firstResult;
+    } else {
+      const secondResult = `Total:${response.total} \nUnique:${response.unique}`;
+      return secondResult; 
+    }
+  } else {
+    if (response[0].status) {
+      let thirdResult = '';
+      response.forEach(element => 
+        thirdResult += `${element.file}, ${element.href}, ${element.text}, ${element.status}, ${element.value}`);
+      return thirdResult;
+    } else {
+      let fourthResult = '';
+      response.forEach(element => 
+        fourthResult += `${element.file}, ${element.href}, ${element.text}`);
+      return fourthResult;
+    }
+  }
 };
 
-showInCli(process.argv);
+const path = process.argv[2];
+let options;
+if (process.argv.includes('--validate') && process.argv.includes('--stats')) {
+  options = {validate: true, stats: true};
+} else if (process.argv.includes('--validate')) {
+  options = {validate: true, stats: false};
+} else if (process.argv.includes('--stats')) {
+  options = {validate: false, stats: true};
+};
 
-module.exports = {showInCli};
+mdLinks(path, options).then(result => console.log(showInCli(result)));
+
+module.exports = showInCli;

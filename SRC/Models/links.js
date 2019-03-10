@@ -4,7 +4,7 @@ const marked = require('marked');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-export const getLinks = (pathAbsolute) => new Promise((resolve, reject) => {
+const getLinks = (pathAbsolute) => new Promise((resolve, reject) => {
   if (!recognizeIfIsFile(pathAbsolute)) {
     let arrLinks = [];
     const arrPath = getFiles(pathAbsolute);
@@ -40,22 +40,12 @@ export const getLinks = (pathAbsolute) => new Promise((resolve, reject) => {
   }
 });
 
-export const evaluatePath = (path) => {
-  const typePath = paths.isAbsolute(path);
-  return typePath;
-};
-
-export const transformToAbsPath = (path) => {
-  const pathAbsolute = paths.resolve(path);
-  return pathAbsolute;
-};
-
-export const recognizeIfIsFile = (pathAbs) => {
+const recognizeIfIsFile = (pathAbs) => {
   const typeFile = fs.statSync(pathAbs).isFile();
   return typeFile;
 };
 
-export const getFiles = (pathAbs) => {
+const getFiles = (pathAbs) => {
   let filesMD = [];
   let files = fs.readdirSync(pathAbs);
   files.forEach((element) => {
@@ -69,7 +59,7 @@ export const getFiles = (pathAbs) => {
   return filesMD;
 };
 
-export const getMDContent = (pathAbsMD) => {
+const getMDContent = (pathAbsMD) => {
   let content = fs.readFileSync(pathAbsMD, 'utf8');
   return content;
 };
@@ -85,17 +75,19 @@ export const getMDContent = (pathAbsMD, callback) => {
 };*/
 
 
-export const convertMDToHtml = (content) => {
+const convertMDToHtml = (content) => {
   const contentHtml = marked(content);
   return contentHtml;
 };
 
-export const extractATagAttr = (aElement, path) => {
+const extractATagAttr = (aElement, path) => {
   const contentHref = aElement.href;
   const contentText = (String(aElement.textContent)).substring(0, 50);
   const route = path;
   const attrLink = {href: contentHref, text: contentText, file: route};
   return attrLink;
 };
+
+module.exports = getLinks;
 
 

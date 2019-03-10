@@ -9,12 +9,19 @@
   ],
   "license": "MIT",
   "bin": {
-    "md-links": "cli.js"
+    "md-links": "./SRC/cli.js"
   },
   "scripts": {
     "eslint": "eslint --ext .js src/ test/",
     "test": "jest --coverage",
     "build": "babel src -d lib"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/Models/",
+      "/lib/cli.js"
+    ]
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

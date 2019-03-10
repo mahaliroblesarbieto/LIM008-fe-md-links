@@ -1,6 +1,17 @@
-import {getLinks, evaluatePath, transformToAbsPath} from './Models/links.js';
-import {validateLink} from './Models/validate.js';
-import {calculateStats} from './Models/stats';
+const getLinks = require('./Models/links.js');
+const validateLink = require('./Models/validate.js');
+const calculateStats = require('./Models/stats');
+const paths = require('path');
+
+const evaluatePath = (path) => {
+  const typePath = paths.isAbsolute(path);
+  return typePath;
+};
+
+const transformToAbsPath = (path) => {
+  const pathAbsolute = paths.resolve(path);
+  return pathAbsolute;
+};
 
 const mdLinks = (path, options) => {
   let pathAbs;

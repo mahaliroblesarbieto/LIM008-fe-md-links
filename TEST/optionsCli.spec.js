@@ -7,8 +7,8 @@ const input2 = [{ href: 'https://www.npmjs.com/package/link-check', text: 'Hola 
 const input3 = {total: 2, unique: 2};
 const input4 = {total: 2, unique: 2, broken: 1};
 
-const ouput = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2, https://www.npmjs.com/package/link-check, Hola MundoC:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2, https://github.com/Laboratoria/LIM008-fe-md-links/src, chau';
-const ouput2 = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2, https://www.npmjs.com/package/link-check, Hola Mundo, 200, OKC:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2, https://github.com/Laboratoria/LIM008-fe-md-links/src, chau, 404, Fail';
+const ouput = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2, https://www.npmjs.com/package/link-check, Hola Mundo\nC:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2, https://github.com/Laboratoria/LIM008-fe-md-links/src, chau\n';
+const ouput2 = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2, https://www.npmjs.com/package/link-check, Hola Mundo, 200, OK\nC:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2, https://github.com/Laboratoria/LIM008-fe-md-links/src, chau, 404, Fail\n';
 const ouput3 =
 'Total:2 \nUnique:2';
 const ouput4 =

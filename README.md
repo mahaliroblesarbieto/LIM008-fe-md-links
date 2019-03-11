@@ -76,7 +76,7 @@ Broken: 1
 
 ## Uso como API
 
-`let mdLinks = require('md-links')`
+`let mdLinks = require('mahalirobles-mdlinks')`
 
 Hay cuatro opciones:
 

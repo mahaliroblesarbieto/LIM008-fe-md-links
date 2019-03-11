@@ -49,14 +49,14 @@ test('Al ingresar la ruta absoluta de un archivo debería retornar un array con 
 });
 
 test('Al ingresar la ruta absoluta de una carpeta que contiene archivos y desea validar debería retornar un array con los links encontrados dentro de la ruta junto con las propiedades status y value', (done) => {
-  mdLinks(input, {validate: true, stats: false}).then((respuesta) => {
+  mdLinks(input, {validate: true}).then((respuesta) => {
     expect(respuesta).toEqual(ouput5);
     done();
   });
 });
 
 test('Al ingresar la ruta absoluta de una carpeta que contiene archivos y desea validar debería retornar el total de links y cuantos son unicos', (done) => {
-  mdLinks(input, {validate: false, stats: true}).then((respuesta) => {
+  mdLinks(input, {stats: true}).then((respuesta) => {
     expect(respuesta).toEqual(ouput6);
     done();
   });

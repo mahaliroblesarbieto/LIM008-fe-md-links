@@ -93,7 +93,7 @@ mdLinks(./some/example.md)
 2. Para obtener un array con los links indicando su status (si esta bien o roto), ingresar md-links, ruta del archivo o directorio y la opcion {validate:true, stats:false}
 
 ```sh
-mdLinks(./some/example.md, {validate:true, stats:false})
+mdLinks(./some/example.md, {validate:true})
 .then(links => {
     // => [{ href, text, file, status, ok }]
   })
@@ -103,7 +103,7 @@ mdLinks(./some/example.md, {validate:true, stats:false})
 3. Para obtener un objeto con la informacion de total de links y cuantos no se repiten, ingresar md-links, ruta del archivo o directorio y la opcion {validate:false, stats:true}
 
 ```sh
-mdLinks(./some/example.md, {validate:false, stats:true})
+mdLinks(./some/example.md, {stats:true})
 .then(links => {
     // => { total:3 , unique:3 }
   })

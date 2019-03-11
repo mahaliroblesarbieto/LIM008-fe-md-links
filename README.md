@@ -69,35 +69,7 @@
 
 ## Product Backlog
 
-|HISTORIA DE USUARIO 1|
-| --------------------- |
-|COMO: Usuario|         
-|QUIERO: Obtener links ingresando una ruta.|              
-|PARA:Ver los links que estan en los archivos markdown.|
-
-|HISTORIA DE USUARIO 2|
-| --------------------- |
-|COMO: Usuario|         
-|QUIERO: Saber el status de cada link.|              
-|PARA: Identiicar cuales son los links que funcionan.|
-
-|HISTORIA DE USUARIO 3|
-| --------------------- |
-|COMO: Usuario|         
-|QUIERO: Tener estadisticas de los links.|              
-|PARA: Saber el total de links, cuanntos son unicos y cuantos rotos.|
-
-|HISTORIA DE USUARIO 4|
-| --------------------- |
-|COMO: Usuario|         
-|QUIERO: Obtener links y sus estadisticas desde CLI.|              
-|PARA: Obtener estos datos mas rápido.|
-
-|HISTORIA DE USUARIO 5|
-| --------------------- |
-|COMO: Usuario|         
-|QUIERO: Instalar la librería.|              
-|PARA: Poder usarla en mis proyectos.|
+![Sin titulo](img/product-backlog.png)
 
 ## Documentación técnica
 

@@ -72,11 +72,11 @@
 | HISTORIA DE USUARIO 1 | HISTORIA DE USUARIO 2 | HISTORIA DE USUARIO 3 | HISTORIA DE USUARIO 4 | HISTORIA DE USUARIO 5 |
 | --------------------- | --------------------- | --------------------- | --------------------- | --------------------- |
 | COMO: Usuario         | COMO: Usuario         | COMO: Usuario         | COMO: Usuario         | COMO: Usuario         |
-| QUIERO: Obtener links | QUIERO: Saber el      | QUIERO: Tener         | QUIERO: Obtener links | QUIERO: Instalar la   |
-| ingresando una ruta.  | status de cada link.  | estadisticas de los   | y sus estadisticas    | libreria.             |
-| PARA:Ver los links que| PARA: Identificar     | links.                | desde CLI.            | PARA: Poder usarla    |
-| estan en los archivos | cuales son los links  | PARA: Saber el total, | PARA: Obtener estos   | en mis proyectos.     |
-| markdown.             | que funcionan.        | unicos y links rotos. | datos mas rapido.     |                       |
+  QUIERO: Obtener links   QUIERO: Saber el        QUIERO: Tener           QUIERO: Obtener links   QUIERO: Instalar la   
+  ingresando una ruta.    status de cada link.    estadisticas de los     y sus estadisticas      libreria.             
+  PARA:Ver los links que  PARA: Identificar       links.                  desde CLI.              PARA: Poder usarla    
+  estan en los archivos   cuales son los links    PARA: Saber el total,   PARA: Obtener estos     en mis proyectos.     
+  markdown.               que funcionan.          unicos y links rotos.   datos mas rapido.                             
 
 ## Documentación técnica
 
@@ -94,30 +94,38 @@ Hay cuatro opciones:
 
 1. Para obtener los links, ingresar md-links y la ruta del archivo o directorio.
 
-`$ md-links ./some/example.md`
-`./some/example.md http://algo.com/2/3/ Link a algo`
-`./some/example.md https://otra-cosa.net/algun-doc.html algún doc`
-`./some/example.md http://google.com/ Google`
+```sh
+$ md-links ./some/example.md
+./some/example.md http://algo.com/2/3/ Link a algo
+./some/example.md https://otra-cosa.net/algun-doc.html algún doc
+./some/example.md http://google.com/ Google
+```
 
 2. Para obtener los links y saber su status (si esta bien o roto), ingresar md-links, ruta del archivo o directorio y la opcion --validate.
 
-`$ md-links ./some/example.md --validate`
-`./some/example.md http://algo.com/2/3/ ok 200 Link a algo`
-`./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc`
-`./some/example.md http://google.com/ ok 301 Google`
+```sh
+$ md-links ./some/example.md --validate
+./some/example.md http://algo.com/2/3/ ok 200 Link a algo
+./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
+./some/example.md http://google.com/ ok 301 Google
+```
 
 3. Para obtener el total de links y cuantos no se repiten, ingresar md-links, ruta del archivo o directorio y la opcion --stats.
 
-`$ md-links ./some/example.md --stats`
-`Total: 3`
-`Unique: 3`
+```sh
+$ md-links ./some/example.md --stats
+Total: 3
+Unique: 3
+```
 
 4. Para obtener el total de links, cuantos no se repiten y cuantos estan rotos, ingresar md-links, ruta del archivo o directorio y las opciones --validate --stats.
 
-`$ md-links ./some/example.md --validate --stats`
-`Total: 3`
-`Unique: 3`
-`Broken: 1`
+```sh
+$ md-links ./some/example.md --validate --stats
+Total: 3
+Unique: 3
+Broken: 1
+```
 
 ## Uso como API
 
@@ -127,34 +135,43 @@ Hay cuatro opciones:
 
 1. Para obtener un array con los links, ingresar mdLinks y la ruta del archivo o directorio.
 
-`mdLinks(./some/example.md)`
-`.then(links => {`
-  `// => [{ href, text, file }]`
-  `})`
-`.catch(console.error);`
+```sh
+mdLinks(./some/example.md)
+.then(links => {
+  // => [{ href, text, file }]
+  })
+.catch(console.error);
+```
 
 2. Para obtener un array con los links indicando su status (si esta bien o roto), ingresar md-links, ruta del archivo o directorio y la opcion {validate:true, stats:false}
 
-`mdLinks(./some/example.md, {validate:true, stats:false})`
-`.then(links => {`
-    `// => [{ href, text, file, status, ok }]`
-  `})`
-`.catch(console.error);`
+```sh
+mdLinks(./some/example.md, {validate:true, stats:false})
+.then(links => {
+    // => [{ href, text, file, status, ok }]
+  })
+.catch(console.error);
+```
+
 3. Para obtener un objeto con la informacion de total de links y cuantos no se repiten, ingresar md-links, ruta del archivo o directorio y la opcion {validate:false, stats:true}
 
-`mdLinks(./some/example.md, {validate:false, stats:true})`
-`.then(links => {`
-    `// => { total:3 , unique:3 }`
-  `})`
-`.catch(console.error);`
+```sh
+mdLinks(./some/example.md, {validate:false, stats:true})
+.then(links => {
+    // => { total:3 , unique:3 }
+  })
+.catch(console.error);
+```
 
 3. Para obtener un objeto con la informacion de total de links, cuantos no se repiten y cuantos estan rotos, ingresar md-links, ruta del archivo o directorio y la opcion {validate:true, stats:true}
 
-`mdLinks(./some/example.md, {validate:true, stats:true})`
-`.then(links => {`
-    `// => { total:3 , unique:3, broken:1 }`
-  `})`
-`.catch(console.error);`
+```sh
+mdLinks(./some/example.md, {validate:true, stats:true})
+.then(links => {
+    // => { total:3 , unique:3, broken:1 }
+  })
+.catch(console.error);
+```
 
 
 

@@ -69,14 +69,35 @@
 
 ## Product Backlog
 
-| HISTORIA DE USUARIO 1 | HISTORIA DE USUARIO 2 | HISTORIA DE USUARIO 3 | HISTORIA DE USUARIO 4 | HISTORIA DE USUARIO 5 |
-| --------------------- | --------------------- | --------------------- | --------------------- | --------------------- |
-| COMO: Usuario         | COMO: Usuario         | COMO: Usuario         | COMO: Usuario         | COMO: Usuario         |
-  QUIERO: Obtener links   QUIERO: Saber el        QUIERO: Tener           QUIERO: Obtener links   QUIERO: Instalar la   
-  ingresando una ruta.    status de cada link.    estadisticas de los     y sus estadisticas      libreria.             
-  PARA:Ver los links que  PARA: Identificar       links.                  desde CLI.              PARA: Poder usarla    
-  estan en los archivos   cuales son los links    PARA: Saber el total,   PARA: Obtener estos     en mis proyectos.     
-  markdown.               que funcionan.          unicos y links rotos.   datos mas rapido.                             
+|HISTORIA DE USUARIO 1|
+| --------------------- |
+|COMO: Usuario|         
+|QUIERO: Obtener links ingresando una ruta.|              
+|PARA:Ver los links que estan en los archivos markdown.|
+
+|HISTORIA DE USUARIO 2|
+| --------------------- |
+|COMO: Usuario|         
+|QUIERO: Saber el status de cada link.|              
+|PARA: Identiicar cuales son los links que funcionan.|
+
+|HISTORIA DE USUARIO 3|
+| --------------------- |
+|COMO: Usuario|         
+|QUIERO: Tener estadisticas de los links.|              
+|PARA: Saber el total de links, cuanntos son unicos y cuantos rotos.|
+
+|HISTORIA DE USUARIO 4|
+| --------------------- |
+|COMO: Usuario|         
+|QUIERO: Obtener links y sus estadisticas desde CLI.|              
+|PARA: Obtener estos datos mas rápido.|
+
+|HISTORIA DE USUARIO 5|
+| --------------------- |
+|COMO: Usuario|         
+|QUIERO: Instalar la librería.|              
+|PARA: Poder usarla en mis proyectos.|
 
 ## Documentación técnica
 

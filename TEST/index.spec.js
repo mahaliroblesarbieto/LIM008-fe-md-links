@@ -1,21 +1,22 @@
 const mdLinks = require('../SRC/index.js');
+const path = require('path');
 // './TEST/carpetapadre/carpetahijo2'
 
-const input = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2'; 
-const input2 = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre'; 
-const input4 = 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2/readme.md';
-const ouput = [{ href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2'},
-  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2'}];
-const ouput2 = [{ href: 'https://www.npmjs.com/package/link-check', text: 'primero', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre'},
-  { href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre'},
-  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre'}];
-const ouput3 = [{ href: 'https://www.npmjs.com/package/link-check', text: 'primero', file: 'C:\\Users\\Henry\\Documents\\javascript-proyecto-laboratoria\\PROYECTO-PORTAFOLIO\\LIM008-fe-md-links\\TEST\\carpetapadre'},
-  { href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: 'C:\\Users\\Henry\\Documents\\javascript-proyecto-laboratoria\\PROYECTO-PORTAFOLIO\\LIM008-fe-md-links\\TEST\\carpetapadre'},
-  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: 'C:\\Users\\Henry\\Documents\\javascript-proyecto-laboratoria\\PROYECTO-PORTAFOLIO\\LIM008-fe-md-links\\TEST\\carpetapadre'}];
-const ouput4 = [{ href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2/readme.md'},
-  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2/readme.md'}];
-const ouput5 = [{ href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2', status: 200, value: 'OK'},
-  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: 'C:/Users/Henry/Documents/javascript-proyecto-laboratoria/PROYECTO-PORTAFOLIO/LIM008-fe-md-links/TEST/carpetapadre/carpetahijo2', status: 404, value: 'Fail'}];
+const input = path.normalize(path.join(__dirname, './carpetapadre/carpetahijo2')); 
+const input2 = path.normalize(path.join(__dirname, './carpetapadre'));
+const input4 = path.normalize(path.join(__dirname, './carpetapadre/carpetahijo2/readme.md'));
+const ouput = [{ href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: path.normalize(path.join(__dirname, './carpetapadre/carpetahijo2'))},
+  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: path.normalize(path.join(__dirname, './carpetapadre/carpetahijo2'))}];
+const ouput2 = [{ href: 'https://www.npmjs.com/package/link-check', text: 'primero', file: path.normalize(path.join(__dirname, './carpetapadre'))},
+  { href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: path.normalize(path.join(__dirname, './carpetapadre'))},
+  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: path.normalize(path.join(__dirname, './carpetapadre'))}];
+const ouput3 = [{ href: 'https://www.npmjs.com/package/link-check', text: 'primero', file: path.normalize(path.join(__dirname, './carpetapadre'))},
+  { href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: path.normalize(path.join(__dirname, './carpetapadre'))},
+  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: path.normalize(path.join(__dirname, './carpetapadre'))}];
+const ouput4 = [{ href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: path.normalize(path.join(__dirname, './carpetapadre/carpetahijo2/readme.md'))},
+  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: path.normalize(path.join(__dirname, './carpetapadre/carpetahijo2/readme.md'))}];
+const ouput5 = [{ href: 'https://www.npmjs.com/package/link-check', text: 'Hola Mundo', file: path.normalize(path.join(__dirname, './carpetapadre/carpetahijo2')), status: 200, value: 'OK'},
+  { href: 'https://github.com/Laboratoria/LIM008-fe-md-links/src', text: 'chau', file: path.normalize(path.join(__dirname, './carpetapadre/carpetahijo2')), status: 404, value: 'Fail'}];
 const ouput6 = {total: 2, unique: 2};
 const ouput7 = {total: 2, unique: 2, broken: 1};
 
@@ -29,14 +30,6 @@ test('Al ingresar la ruta absoluta de una carpeta que contiene archivos debería
 test('Al ingresar la ruta absoluta de una carpeta que contiene archivos y carpetas debería retornar un array con los links encontrados dentro de la ruta', (done) => {
   mdLinks(input2).then((respuesta) => {
     expect(respuesta).toEqual(ouput2);
-    done();
-  });
-});
-
-
-test('Al ingresar la ruta relativa de una carpeta que contiene archivos y carpetas debería retornar un array con los links encontrados dentro de la ruta', (done) => {
-  mdLinks('TEST/carpetapadre').then((respuesta) => {
-    expect(JSON.stringify(respuesta, null, 4)).toEqual(JSON.stringify(ouput3, null, 4));
     done();
   });
 });

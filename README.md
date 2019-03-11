@@ -7,35 +7,15 @@
 
 ## Pseudocodigo
 
-1. evaluatePath 
-- Ingresa: Ruta (string)
-- Proceso: Utilizar método path.isAbsolute para reconocer si la ruta es absoluta
-- Salida: true/false (booleano)
-
-2. transformToAbsPath
-- Ingresa: Ruta (string)
-- Proceso: Utilizar método path.resolve para convertir ruta relativa a absoluta
-- Salida: Ruta absoluta (string)
-
-16. recognizeIfIsFile
-- Ingresa: Ruta absoluta (string)
-- Proceso: Utilizar método fs.lstat.isFile para reconocer si es archivo
-- Salida: true/false (booleano)
-
-13. getFiles
-- Ingresa: Ruta absoluta (string)
-- Proceso: Obtener todos los archivos
-- Salida: Array con las rutas de todos los archivos(array)
-
-3. getMDContent
-- Ingresa: Ruta absoluta MD (string)
-- Proceso: Obtener el contenido del archivo markdown utilizando la libreria fs.readFile (con UTF)
-- Salida: Contenido(string)
-
-5. convertMDToHtml
-- Ingresa: Contenido (string)
-- Proceso: Usar librería Marked para convertir contenido a HTML
-- Salida: Contenido HTML(string)
+| Función    | Ingresa     |Proceso     |Salida     |
+| ------------- | ------------- | ------------- | ------------- |
+| 1. evaluatePath | Ruta (string) | Utilizar método path.isAbsolute para reconocer si la ruta es absoluta| true/false (booleano) |
+| 2. transformToAbsPath | Ruta (string) | Utilizar método path.resolve para convertir ruta relativa a absoluta| Ruta absoluta (string)) |
+| 16. recognizeIfIsFile | Ruta absoluta (string) | Utilizar método fs.lstat.isFile para reconocer si es archivo| true/false (booleano) |
+| 13. getFiles | Ruta absoluta (string) | Obtener todos los archivos| Array con las rutas de todos los archivos(array) |
+| 3. getMDContent | Ruta absoluta MD (string) | Obtener contenido del archivo markdown utilizando la libreria fs.readFile (con UTF)| Contenido(string)|
+| 5. convertMDToHtml | Contenido (string) | Usar librería Marked para convertir contenido a HTML| Contenido HTML(string)|
+| 7. extractATagAttr | HTML (string) | Utilizar librería JSDOM para obtener href y contenido de los link.| Informacion de los link(objeto)|
 
 7. extractATagAttr
 - Ingresa: HTML (string)

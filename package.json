@@ -1,6 +1,6 @@
 {
-  "name": "md-links",
-  "version": "1.0.0",
+  "name": "mahalirobles-mdlinks",
+  "version": "1.2.0",
   "description": "md-links permite identificar urls que se encuentran en archivos con extensión md, permite identificar cuales de esas url encontradas estan rotas y también sacar una estadística sobre el total de los links encontrados, cuantos son únicos y cuantos estan rotos.",
   "main": "SRC/index.js",
   "keywords": [

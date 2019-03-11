@@ -16,36 +16,10 @@
 | 3. getMDContent | Ruta absoluta MD (string) | Obtener contenido del archivo markdown utilizando la libreria fs.readFile (con UTF)| Contenido(string)|
 | 5. convertMDToHtml | Contenido (string) | Usar librería Marked para convertir contenido a HTML| Contenido HTML(string)|
 | 7. extractATagAttr | HTML (string) | Utilizar librería JSDOM para obtener href y contenido de los link.| Informacion de los link(objeto)|
-
-7. extractATagAttr
-- Ingresa: HTML (string)
-- Proceso: Utilizar librería JSDOM para: obtener href y contenido de los link y meter la información dentro de un objeto.
-- Salida: Informacion de los link(objeto)
-
-8. createArrLinkObj
-- Ingresa: Informacion de los link(objeto)
-- Proceso: Crear array, meter objeto a array
-- Salida: Array con informacion de links dentro de objeto(array)
-
-9. extractHref
-- Ingresa: Array con informacion de links dentro de objeto(array)
-- Proceso: Extraer href de cada objeto que esta dentro del array y guardarlo en un nuevo array
-- Salida: Array con href de cada link(array)
-
-10. verifyLink
-- Ingresa: Array con href de cada link(array)
-- Proceso: Utilizar método http para verificar si href es valido o no, guardar cada ok o fail dentro de un array.
-- Salida: Array con status de cada link(array)
-
-11. addVerification
-- Ingresa: Array con status de cada link(array)
-- Proceso: Meter status de cada link dentro de array con informacion de links dentro de objeto(array)
-- Salida: Array con informacion de links y status dentro de objeto (array)
-
-12. calculateStats
-- Ingresa: Array con informacion de links dentro de objeto o Array con informacion de links y status dentro de objeto (array)
-- Proceso: Calcular total de links, cuantos son unicos, y en caso a que se ingrese array con status de los links entonces calcular tambien los links que están rotos.
-- Salida: Array con estadisticas de total, unique y broken (array)
+| 8. createArrLinkObj | Informacion de los link(objeto) | Crear array, meter objeto a array.| Array con informacion de links dentro de objeto(array)|
+| 9. extractHref | Array con objetos(array) | Extraer href de cada objeto y guardarlo en un nuevo array| Array con href de cada link(array)|
+| 10. validateLink | Array con href de cada link(array) | Utilizar node-fetch para evaluar href | Array con status de cada link(array)|
+| 12. calculateStats | Array con links o Array con links validados (array) | Calcular total de links, unicos, y rotos.| total, unique y broken (objeto)|
 
 ## Product Backlog
 

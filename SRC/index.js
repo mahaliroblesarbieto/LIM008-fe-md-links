@@ -12,7 +12,7 @@ const transformToAbsPath = (path) => {
   return pathAbsolute;
 };
 
-const mdLinks = (path, options) => {
+const mdLinks = (path, options = {}) => {
   let pathAbs;
   if (evaluatePath(path)) {
     pathAbs = path;
@@ -20,16 +20,16 @@ const mdLinks = (path, options) => {
     pathAbs = transformToAbsPath(path);
   };
   return new Promise((resolve, reject) => {
-    if (options === undefined) {
-      getLinks(pathAbs)
-        .then(response => resolve(response))
-        .catch(console.error);
-    } else if (options.validate) {
+    if (options.validate) {
       getLinks(pathAbs)
         .then((arr) => validateLink(arr))
         .then(response => resolve(response))
         .catch(console.error);
-    } 
+    } else {
+      getLinks(pathAbs)
+        .then(response => resolve(response))
+        .catch(console.error);
+    }
   });   
 };
 

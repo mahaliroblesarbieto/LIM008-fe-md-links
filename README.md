@@ -78,9 +78,9 @@ Broken: 1
 
 `let mdLinks = require('mahalirobles-mdlinks')`
 
-Hay cuatro opciones:
+Hay dos opciones:
 
-1. Para obtener un array con los links, ingresar mdLinks y la ruta del archivo o directorio.
+1. Para obtener un array con los links, ingresar mdLinks y la ruta del archivo o directorio, la ruta puedes ser absoluta o relativa.
 
 ```sh
 mdLinks(./some/example.md)
@@ -90,32 +90,12 @@ mdLinks(./some/example.md)
 .catch(console.error);
 ```
 
-2. Para obtener un array con los links indicando su status (si esta bien o roto), ingresar md-links, ruta del archivo o directorio y la opcion {validate:true, stats:false}
+2. Para obtener un array con los links indicando su status (si esta bien o roto), ingresar md-links, ruta del archivo o directorio y la opcion {validate:true}
 
 ```sh
 mdLinks(./some/example.md, {validate:true})
 .then(links => {
     // => [{ href, text, file, status, ok }]
-  })
-.catch(console.error);
-```
-
-3. Para obtener un objeto con la informacion de total de links y cuantos no se repiten, ingresar md-links, ruta del archivo o directorio y la opcion {validate:false, stats:true}
-
-```sh
-mdLinks(./some/example.md, {stats:true})
-.then(links => {
-    // => { total:3 , unique:3 }
-  })
-.catch(console.error);
-```
-
-3. Para obtener un objeto con la informacion de total de links, cuantos no se repiten y cuantos estan rotos, ingresar md-links, ruta del archivo o directorio y la opcion {validate:true, stats:true}
-
-```sh
-mdLinks(./some/example.md, {validate:true, stats:true})
-.then(links => {
-    // => { total:3 , unique:3, broken:1 }
   })
 .catch(console.error);
 ```

@@ -64,17 +64,6 @@ const getMDContent = (pathAbsMD) => {
   return content;
 };
 
-/* ejemplo de getMDContent en versión asincrona
-export const getMDContent = (pathAbsMD, callback) => {
-  let content;
-  fs.readFile(pathAbsMD, 'utf8', (err, data) => {
-    if (err) throw err;
-    content = data;
-    callback(content);
-  });
-};*/
-
-
 const convertMDToHtml = (content) => {
   const contentHtml = marked(content);
   return contentHtml;
@@ -90,4 +79,28 @@ const extractATagAttr = (aElement, path) => {
 
 module.exports = getLinks;
 
+/* ejemplo de getMDContent en versión asincrona
+export const getMDContent = (pathAbsMD, callback) => {
+  let content;
+  fs.readFile(pathAbsMD, 'utf8', (err, data) => {
+    if (err) throw err;
+    content = data;
+    callback(content);
+  });
+};*/
 
+// const arrAttLink = () => {
+//   let arr;
+//   for (let i = 0; i < arrPath.length; i++) {
+//     const content = getMDContent(arrPath[i]);
+//     if (content !== '') {
+//       const contenthtml = convertMDToHtml(content);
+//       const dom = new JSDOM(contenthtml);
+//       if (dom.window.document.querySelector('a')) {
+//         dom.window.document.querySelectorAll('a').forEach((archivo) => {
+//           arr.push(extractATagAttr(archivo, pathAbsolute));
+//         });
+//       }
+//     }
+//   }
+// };

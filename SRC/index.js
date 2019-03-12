@@ -1,6 +1,5 @@
 const getLinks = require('./Models/links.js');
 const validateLink = require('./Models/validate.js');
-const calculateStats = require('./Models/stats');
 const paths = require('path');
 
 const evaluatePath = (path) => {
@@ -25,24 +24,14 @@ const mdLinks = (path, options) => {
       getLinks(pathAbs)
         .then(response => resolve(response))
         .catch(console.error);
-    } else if (options.validate && !options.stats) {
+    } else if (options.validate) {
       getLinks(pathAbs)
         .then((arr) => validateLink(arr))
         .then(response => resolve(response))
         .catch(console.error);
-    } else if (!options.validate && options.stats) {
-      getLinks(pathAbs)
-        .then((arr) => calculateStats(arr))
-        .then(response => resolve(response))
-        .catch(console.error);
-    } else if (options.validate && options.stats) {
-      getLinks(pathAbs)
-        .then((arr) => validateLink(arr))
-        .then((arr) => calculateStats(arr))
-        .then(response => resolve(response))
-        .catch(console.error);
-    }
+    } 
   });   
 };
 
 module.exports = mdLinks;
+ 

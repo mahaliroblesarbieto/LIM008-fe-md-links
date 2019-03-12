@@ -12,6 +12,8 @@ if (process.argv.includes('--validate') && process.argv.includes('--stats')) {
   options = {validate: false, stats: true};
 };
 
-mdLinks(path, options).then(result => console.log(showInCli(result)));
+mdLinks(path, options).then(result => showInCli(result, options)).then(result => console.log(result));
 
 module.exports = showInCli;
+
+

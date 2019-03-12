@@ -47,17 +47,3 @@ test('Al ingresar la ruta absoluta de una carpeta que contiene archivos y desea 
     done();
   });
 });
-
-test('Al ingresar la ruta absoluta de una carpeta que contiene archivos y desea validar debería retornar el total de links y cuantos son unicos', (done) => {
-  mdLinks(input, {stats: true}).then((respuesta) => {
-    expect(respuesta).toEqual(ouput6);
-    done();
-  });
-});
-
-test('Al ingresar la ruta absoluta de una carpeta que contiene archivos y desea validar debería retornar el total de links, cuantos son unicos y cuantos son broken', (done) => {
-  mdLinks(input, {validate: true, stats: true}).then((respuesta) => {
-    expect(respuesta).toEqual(ouput7);
-    done();
-  });
-});

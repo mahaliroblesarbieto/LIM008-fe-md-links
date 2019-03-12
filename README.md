@@ -31,9 +31,13 @@ El propósito de esta librería es que el usuario pueda obtener los links que se
 
 ## Instalación
 
-Para instalar esta librería tienes que ejecutar el siguiente comando:
+Puedes instalar esta librería mediante cualquiera de los siguientes comandos:
 
-`npm i mahalirobles-mdlinks`
+```sh
+npm i mahalirobles-mdlinks
+
+npm install mahaliroblesarbieto/md-links
+```
 
 ## Uso en línea de comandos
 

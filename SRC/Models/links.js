@@ -6,39 +6,33 @@ const { JSDOM } = jsdom;
 
 const getLinks = (pathAbsolute) => new Promise((resolve, reject) => {
   if (!recognizeIfIsFile(pathAbsolute)) {
-    let arrLinks = [];
     const arrPath = getFiles(pathAbsolute);
-    for (let i = 0; i < arrPath.length; i++) {
-      const content = getMDContent(arrPath[i]);
-      if (content !== '') {
-        const contenthtml = convertMDToHtml(content);
-        const dom = new JSDOM(contenthtml);
-        if (dom.window.document.querySelector('a')) {
-          dom.window.document.querySelectorAll('a').forEach((archivo) => {
-            arrLinks.push(extractATagAttr(archivo, pathAbsolute));
-          });
-        }
-      }
-    }
-    resolve(arrLinks);
+    resolve(arrAttLink(arrPath, pathAbsolute));
   } else {
     let extension = paths.extname(pathAbsolute);
-    let arrLinks = [];
     if (extension === '.md') {
-      const content = getMDContent(pathAbsolute);
-      if (content !== '') {
-        const contenthtml = convertMDToHtml(content);
-        const dom = new JSDOM(contenthtml);
-        if (dom.window.document.querySelector('a')) {
-          dom.window.document.querySelectorAll('a').forEach((archivo) => {
-            arrLinks.push(extractATagAttr(archivo, pathAbsolute));
-          });
-        }
-      }
+      const path = [pathAbsolute];
+      resolve(arrAttLink(path, pathAbsolute));
     }
-    resolve(arrLinks);
   }
 });
+
+const arrAttLink = (arrPaths, path) => {
+  let arrLinks = [];
+  for (let i = 0; i < arrPaths.length; i++) {
+    const content = getMDContent(arrPaths[i]);
+    if (content !== '') {
+      const contenthtml = convertMDToHtml(content);
+      const dom = new JSDOM(contenthtml);
+      if (dom.window.document.querySelector('a')) {
+        dom.window.document.querySelectorAll('a').forEach((archivo) => {
+          arrLinks.push(extractATagAttr(archivo, path));
+        });
+      }
+    }
+  }
+  return arrLinks; 
+};
 
 const recognizeIfIsFile = (pathAbs) => {
   const typeFile = fs.statSync(pathAbs).isFile();
@@ -89,18 +83,4 @@ export const getMDContent = (pathAbsMD, callback) => {
   });
 };*/
 
-// const arrAttLink = () => {
-//   let arr;
-//   for (let i = 0; i < arrPath.length; i++) {
-//     const content = getMDContent(arrPath[i]);
-//     if (content !== '') {
-//       const contenthtml = convertMDToHtml(content);
-//       const dom = new JSDOM(contenthtml);
-//       if (dom.window.document.querySelector('a')) {
-//         dom.window.document.querySelectorAll('a').forEach((archivo) => {
-//           arr.push(extractATagAttr(archivo, pathAbsolute));
-//         });
-//       }
-//     }
-//   }
-// };
+
